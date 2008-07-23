@@ -1,7 +1,7 @@
 %define name rt73-firmware
 %define rtname RT71W_Firmware
 %define version 1.8
-%define release %mkrel 2
+%define release %mkrel 3
 
 Summary: Firmware for the RT73 chip
 Name: %{name}
