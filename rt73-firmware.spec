@@ -1,13 +1,14 @@
 %define name rt73-firmware
 %define rtname RT71W_Firmware
 %define version 1.8
-%define release %mkrel 3
+%define release %mkrel 4
 
 Summary: Firmware for the RT73 chip
 Name: %{name}
 Version: %{version}
 Release: %{release}
 Source0: http://www.ralinktech.com/ralink/data/%{rtname}_V%{version}.tar.bz2
+Source1: rt73.pm-utils
 License: Proprietary
 Group: System/Kernel and hardware
 Url: http://rt2x00.serialmonkey.com/
@@ -27,6 +28,7 @@ used in WLAN USB sticks.
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT/lib/firmware
 install -m644 rt73.bin $RPM_BUILD_ROOT/lib/firmware
+install -D -m 755 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/pm/config.d/rt73
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -34,4 +36,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(-,root,root)
 /lib/firmware/rt73.bin
-
+%{_sysconfdir}/pm/config.d/rt73
