@@ -1,19 +1,15 @@
-%define name rt73-firmware
-%define rtname RT71W_Firmware
-%define version 1.8
-%define release %mkrel 5
+%define	rtname	RT71W_Firmware
 
-Summary: Firmware for the RT73 chip
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: http://www.ralinktech.com/ralink/data/%{rtname}_V%{version}.tar.bz2
-Source1: rt73.pm-utils
-License: Proprietary
-Group: System/Kernel and hardware
-Url: http://rt2x00.serialmonkey.com/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildArch: noarch
+Summary:	Firmware for the RT73 chip
+Name:		rt73-firmware
+Version:	1.8
+Release:	6
+Source0:	http://www.ralinktech.com/ralink/data/%{rtname}_V%{version}.tar.bz2
+Source1:	rt73.pm-utils
+License:	Proprietary
+Group:		System/Kernel and hardware
+Url:		http://rt2x00.serialmonkey.com/
+BuildArch:	noarch
 
 %description
 This package contains the firmware files for the RT73 chip, which is
@@ -25,15 +21,9 @@ used in WLAN USB sticks.
 %build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT/lib/firmware
-install -m644 rt73.bin $RPM_BUILD_ROOT/lib/firmware
-install -D -m 755 %{SOURCE1} $RPM_BUILD_ROOT%{_sysconfdir}/pm/config.d/rt73
-
-%clean
-rm -rf $RPM_BUILD_ROOT
+install -m644 rt73.bin -D %{buildroot}/lib/firmware/rt73.bin
+install -m755 %{SOURCE1} -D %{buildroot}%{_sysconfdir}/pm/config.d/rt73
 
 %files
-%defattr(-,root,root)
 /lib/firmware/rt73.bin
 %{_sysconfdir}/pm/config.d/rt73
