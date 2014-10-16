@@ -3,7 +3,7 @@
 Summary:	Firmware for the RT73 chip
 Name:		rt73-firmware
 Version:	1.8
-Release:	6
+Release:	7
 Source0:	http://www.ralinktech.com/ralink/data/%{rtname}_V%{version}.tar.bz2
 Source1:	rt73.pm-utils
 License:	Proprietary
