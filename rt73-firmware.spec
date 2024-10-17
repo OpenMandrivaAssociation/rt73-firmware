@@ -8,7 +8,7 @@ Source0:	http://www.ralinktech.com/ralink/data/%{rtname}_V%{version}.tar.bz2
 Source1:	rt73.pm-utils
 License:	Proprietary
 Group:		System/Kernel and hardware
-Url:		http://rt2x00.serialmonkey.com/
+Url:		https://rt2x00.serialmonkey.com/
 BuildArch:	noarch
 
 %description
